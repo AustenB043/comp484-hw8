@@ -96,7 +96,7 @@ footer a:hover {
 /* Work Experience
 ------------------------------------*/
 .work-experience {
-    background: #FFFFFF;
+    background: #F8FAFB;
     padding: 1.5rem 1rem;
 }
 
@@ -124,11 +124,30 @@ footer a:hover {
 }
 
 
+/* Dedicated narrow column just for the profile image in header */
+.column-narrow-profile {
+    width: 30%;
+    float: left;
+    padding-right: 0%;
+    min-height: 275px;
+}
+
+
 /* Education
 ------------------------------------*/
 
+/* HW8 Step 3 Notes:
+   Two background layers are declared in one shorthand:
+   1) linear-gradient(...) — this is the top layer (the tint)
+      - Uses RGBA where the last value is alpha (0.65 = 65% opacity)
+      - Darkens the image but still lets it show through
+   2) url('...') center/cover no-repeat fixed — the image layer
+      - center/cover keeps the image centered and scaled to fill
+      - no-repeat avoids tiling; fixed creates a subtle parallax effect
+*/
 .education {
-    background: #F8FAFB;
+    background: linear-gradient(rgba(43, 45, 66, 0.65), rgba(43, 45, 66, 0.65)), url('../images/CSUN-campus-aerial.jpg') center/cover no-repeat fixed;
+    color: #FFFFFF;
     padding: 1.5rem 1rem;
 }
 
@@ -142,3 +161,50 @@ h2 { font-size: 1.6rem; font-weight: 700; margin-top: 0; }
 h3 { font-size: 1.2rem; font-weight: 600; }
 
 p, li { font-size: 1rem; }
+
+/* Top Navigation
+------------------------------------*/
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E6E8EB;
+    z-index: 1000;
+}
+
+.nav-inner {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 10px 50px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.top-nav a {
+    color: #2B2D42;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 6px;
+}
+
+.top-nav a:hover {
+    color: #EF233C;
+}
+
+/* Account for fixed nav and improve anchor scrolling */
+body {
+    padding-top: 56px;
+    scroll-behavior: smooth;
+}
+
+header, section, footer {
+    scroll-margin-top: 64px;
+}
+
+/* Footer icon spacing */
+.contact-info i {
+    margin-right: 8px;
+}
